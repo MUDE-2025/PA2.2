@@ -2,7 +2,7 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-def readGmsh(filename):
+def read_gmsh(filename):
     """Read GMSH mesh file and return nodes and elements"""
     if not filename.endswith('.msh'):
         raise RuntimeError('Unexpected mesh file extension')
@@ -28,13 +28,12 @@ def readGmsh(filename):
                 elems.append(inodes)
     return np.array(nodes), np.array(elems)
 
-def plotMeshes(filenames):
-    fig = plt.figure(figsize=(12,12))
+def plot_meshes(filenames):
     ncol = 1 + (len(filenames) > 1)
     nrow = math.ceil(len(filenames)/ncol)
-    print('plotmeshes', nrow, ncol)
+    fig = plt.figure(figsize=(6*ncol,6*nrow))
     for idx, filename in enumerate(filenames):
-        nodes, elems = readGmsh(filename)
+        nodes, elems = read_gmsh(filename)
         ax = fig.add_subplot(nrow, ncol, idx+1)
         ax.triplot(nodes[:,0], nodes[:,1], elems, 'k-', lw=0.2)
         ax.set_title(filename[:-4])
