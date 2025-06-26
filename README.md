@@ -2,7 +2,7 @@
 
 *[CEGM1000 MUDE](http://mude.citg.tudelft.nl/)*
 
-*Written by: `<author(s)>`*
+*Written by: Frans van der Meer and Tom van Woudenberg*
 
 *Due: `<day of week>`, `<month>` `<day>`, `<year>`.*
 
