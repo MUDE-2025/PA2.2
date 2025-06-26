@@ -11,16 +11,16 @@ def run(M_dense, M_sparse, n_nodes, n_repeats_fast=10, n_repeats_slow=1):
     # Matrix-vector multiplication - repeat for better timing
     dense_times = []
     for _ in range(n_repeats_fast):
-        start_time = time.time()
+        start_time = time.perf_counter()
         result_dense = M_dense @ v
-        dense_times.append(time.time() - start_time)
+        dense_times.append(time.perf_counter() - start_time)
     dense_matvec_time = np.mean(dense_times)
     
     sparse_times = []
     for _ in range(n_repeats_fast):
-        start_time = time.time()
+        start_time = time.perf_counter()
         result_sparse = M_sparse @ v
-        sparse_times.append(time.time() - start_time)
+        sparse_times.append(time.perf_counter() - start_time)
     sparse_matvec_time = np.mean(sparse_times)
 
     print(f"  MatVec - Dense: {dense_matvec_time*1000:.4f}ms, Sparse: {sparse_matvec_time*1000:.4f}ms")
@@ -33,16 +33,16 @@ def run(M_dense, M_sparse, n_nodes, n_repeats_fast=10, n_repeats_slow=1):
     # Linear system solving - usually slow enough that we don't need many repeats
     dense_solve_times = []
     for _ in range(n_repeats_slow):
-        start_time = time.time()
+        start_time = time.perf_counter()
         solution_dense = np.linalg.solve(M_dense, v)
-        dense_solve_times.append(time.time() - start_time)
+        dense_solve_times.append(time.perf_counter() - start_time)
     dense_solve_time = np.mean(dense_solve_times)
     
     sparse_solve_times = []
     for _ in range(n_repeats_slow):
-        start_time = time.time()
+        start_time = time.perf_counter()
         solution_sparse = spsolve(M_sparse, v)
-        sparse_solve_times.append(time.time() - start_time)
+        sparse_solve_times.append(time.perf_counter() - start_time)
     sparse_solve_time = np.mean(sparse_solve_times)
     
     print(f"  Solve - Dense: {dense_solve_time:.4f}s, Sparse: {sparse_solve_time:.4f}s")
