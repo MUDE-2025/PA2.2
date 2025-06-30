@@ -1,0 +1,34 @@
+name: Autograding Tests
+on:
+  push:
+    branches:
+      - assignment
+      - solution
+  repository_dispatch:
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Set Jupyter platformdirs environment variable #to remove warning DeprecationWarning: Jupyter is migrating its paths to use standard platformdirs given by the platformdirs library
+      run: echo "JUPYTER_PLATFORM_DIRS=1" >> $GITHUB_ENV
+    - name: Test notebook
+      id: test-notebook
+      uses: classroom-resources/autograding-python-grader@v1
+      with:
+        timeout: 10
+        max-score: 10
+        setup-command: pip install numpy scipy pandas matplotlib jupyter ipykernel
+          pytest testbook
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-NOTEBOOK_RESULTS: "${{steps.test-notebook.outputs.result}}"
+      with:
+        runners: test-notebook
