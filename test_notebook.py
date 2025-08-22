@@ -3,7 +3,7 @@ from testbook import testbook
 def test_values():
     with testbook('PA_2_2_sparse_v_dense.ipynb', execute=True) as tb:
 
-        results = tb.value("list(results)")
+        results = tb.value("results")
         
         assert len(results) > 2
         assert 'sparse_solve_time' in results[2]
