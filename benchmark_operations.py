@@ -14,14 +14,14 @@ def run(M_dense, M_sparse, n_nodes, n_repeats_fast=10, n_repeats_slow=1):
         start_time = time.perf_counter()
         result_dense = M_dense @ v
         dense_times.append(time.perf_counter() - start_time)
-    dense_matvec_time = np.mean(dense_times)
+    dense_matvec_time = np.min(dense_times)
     
     sparse_times = []
     for _ in range(n_repeats_fast):
         start_time = time.perf_counter()
         result_sparse = M_sparse @ v
         sparse_times.append(time.perf_counter() - start_time)
-    sparse_matvec_time = np.mean(sparse_times)
+    sparse_matvec_time = np.min(sparse_times)
 
     print(f"  MatVec - Dense: {dense_matvec_time*1000:.4f}ms, Sparse: {sparse_matvec_time*1000:.4f}ms")
     print(f"  MatVec speedup: {dense_matvec_time/sparse_matvec_time:.1f}x")
@@ -36,14 +36,14 @@ def run(M_dense, M_sparse, n_nodes, n_repeats_fast=10, n_repeats_slow=1):
         start_time = time.perf_counter()
         solution_dense = np.linalg.solve(M_dense, v)
         dense_solve_times.append(time.perf_counter() - start_time)
-    dense_solve_time = np.mean(dense_solve_times)
+    dense_solve_time = np.min(dense_solve_times)
     
     sparse_solve_times = []
     for _ in range(n_repeats_slow):
         start_time = time.perf_counter()
         solution_sparse = spsolve(M_sparse, v)
         sparse_solve_times.append(time.perf_counter() - start_time)
-    sparse_solve_time = np.mean(sparse_solve_times)
+    sparse_solve_time = np.min(sparse_solve_times)
     
     print(f"  Solve - Dense: {dense_solve_time:.4f}s, Sparse: {sparse_solve_time:.4f}s")
     print(f"  Solve speedup: {dense_solve_time/sparse_solve_time:.1f}x")
