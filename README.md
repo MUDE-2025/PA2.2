@@ -1,9 +1,17 @@
-# Programming assignment 2.2
+# Programming Assignment 2.2: SparseForge
 
-*Due: `<day of week>`, `<month>` `<day>`, `<year>`.*
+*Due: Friday, November 21th.*
 
-You can access this assignment with the following link: `classroom.github.com/a/<xxxxxxx>`.
+You can preview this assignment on https://mude.citg.tudelft.nl/workbook-2025/assignments/PA2.2/README.html. After the deadline, this link will include solutions. The preview of the assignment version is shared here: https://mude.citg.tudelft.nl/workbook-2025/no_solutions/assignments/PA2.2/README.html. You can obtain your personal repository for submission on: ...
 
-`<This repository contains source file for the assignment and will be used a source for student repositories and in the workbook. Replace this README with appropriate information describing the file types and how it should be submitted in case of a programming or workshop assignment.>`
+Before you can start this assignment, read the theory pages in the book chapter [Programming with large matrices](https://mude.citg.tudelft.nl/book/2025/programming/week_2_2.html):
+- [Assembly and np._ix](https://mude.citg.tudelft.nl/book/2025-draft/programming/week_2_2/assembly.html)
+  - Forgot about `np._ix`? Look back at [PA1.2 Filling a matrix](https://mude.citg.tudelft.nl/workbook-2025/assignments/PA1.2/7_filling_matrix.html)
+- [Sparse matrices with scipy.sparse](https://mude.citg.tudelft.nl/book/2025/programming/week_2_2/sparse.html)
+- [Solving systems of equations](https://mude.citg.tudelft.nl/book/2025/programming/week_2_2/solver.html)
 
-> By Frans van der Meer and Tom van Woudenberg, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
+This assignment will help you understand more about sparse matrices.
+
+You pass this PA if you complete the implementation for dense and sparse matrix assembly leading to correct results
+
+> By Frans van der Meer, Delft University of Technology. CC BY 4.0, more info [on the Credits page of Workbook](https://mude.citg.tudelft.nl/workbook-2025/credits.html).
