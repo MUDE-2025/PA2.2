@@ -10,7 +10,7 @@ Before you can start this assignment, read the theory pages in the book chapter 
 - [Sparse matrices with scipy.sparse](https://mude.citg.tudelft.nl/book/2025/programming/week_2_2/sparse.html)
 - [Solving systems of equations](https://mude.citg.tudelft.nl/book/2025/programming/week_2_2/solver.html)
 
-In this assignment you'll make exercises on sparse matrices in [a notebook](./PA_2_2_sparse_v_dense.ipynb)
+In this assignment you'll make exercises on sparse matrices comparing [Dense vs Sparse](./PA_2_2_sparse_v_dense.ipynb)
 
 You pass this PA if you complete the implementation for dense and sparse matrix assembly leading to correct results
 
